@@ -1,0 +1,25 @@
+<script>
+    function subConjunto(arr) {
+        const n = arr.length;
+        for (let i = 0; i < (1 << n); i++) {
+            let subArray = [];
+            for (let j = 0; j < n; j++) {
+                if (i & (1 << j)) {
+                    subArray.push(arr[j]);
+                }
+            }
+            if (somatorio(subArray) === 0) {
+               console.log("Resultados: " + subArray);
+            }
+        }
+    }
+    
+    function somatorio(values) {                              
+        return values.reduce((a, b) => a + b, 0);
+    }
+    
+    let entrada = prompt("Informe os valores para o array: ").trim()
+    let valores = entrada.split(' ').map(num => parseInt(num))
+    //let arr = [3, 2, -3, -2, 5, -8];
+    subConjunto(valores);
+    </script>
